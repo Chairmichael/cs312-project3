@@ -1,0 +1,33 @@
+body {
+    font: 1em 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 5% 10%;
+    color: aliceblue;
+}
+
+body,
+textarea,
+input {
+    background-color: rgb(25, 26, 27);
+}
+
+fieldset {
+    padding: 1rem 3rem;
+}
+
+input {
+    margin-bottom: 1rem;
+}
+
+label {
+    margin-right: 1rem;
+}
+
+.new-post-form textarea {
+    margin-top: 0.5rem;
+}
+
+.card {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: rgb(18, 19, 20);
+}

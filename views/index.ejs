@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>Jeff's Communications</title>
+</head>
+
+<body>
+  <div>
+
+    <div class="new-post-form">
+      <form action="" method="post" id="postform">
+        <fieldset>
+          <legend> Create new post: </legend>
+          <div>
+            <label>
+              Username: <input name="username" form="postform" />
+            </label>
+            <label>
+              Title: <input name="title" form="postform" />
+            </label>
+            <label>
+              <select name="tags" form="postform">
+                <% post_tags.forEach(tag_category=> { %>
+                  <option value="<%= tag_category %>">
+                    <%= tag_category %>
+                  </option>
+                  <% }) %>
+              </select>
+            </label>
+            <br />
+            <label class="new-post-body-text-label">Body:</label>
+            <br />
+            <textarea rows="6" cols="80" name="body" form="postform" class="new-post-body-text"></textarea>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="post-list">
+      <% cards.forEach(card=> { %>
+        <div class="card">
+          <h2>
+            <%= card.title %>
+          </h2>
+          <p>
+            <%= card.description %>
+          </p>
+        </div>
+        <% }) %>
+    </div>
+
+  </div>
+</body>
+
+</html>
