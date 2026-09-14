@@ -34,8 +34,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-    const { postId, title, tags, body } = req.body;
-    const username = req.body.username || req.body.editUsername;
+    const { postId, username, title, tags, body } = req.body;
     const existingPostIndex = cards.findIndex((card) => card.id === postId);
 
     const updatedPost = {
@@ -53,6 +52,8 @@ app.post('/', (req, res) => {
         cards[existingPostIndex] = updatedPost;
     }
 
+    console.log(updatedPost);
+
     res.redirect('/');
 });
 
@@ -63,6 +64,7 @@ app.post('/delete', (req, res) => {
         cards.splice(postIndex, 1);
     }
 
+    console.log(updatedPost);
     res.sendStatus(204);
 });
 

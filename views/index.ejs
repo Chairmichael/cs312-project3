@@ -19,7 +19,6 @@
           <legend> Create new post: </legend>
           <div>
             <input type="hidden" name="postId" form="postform" />
-            <input type="hidden" name="editUsername" form="postform" />
             <label>
               Username: <input name="username" form="postform" />
             </label>
@@ -43,6 +42,9 @@
             <button type="submit" form="postform" id="form-submit-btn">Submit</button>
             <button type="submit" form="postform" id="form-submit-edit-btn" style="display: none;">Submit Edit</button>
             <button type="button" form="postform" id="form-cancel-edit-btn" style="display: none;">Cancel Edit</button>
+            <span id="form-submit-error" style="color: brown; font-weight: bold; margin-left: 1rem;">
+              All fields required!
+            </span>
           </div>
         </fieldset>
       </form>

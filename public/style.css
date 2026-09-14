@@ -65,3 +65,7 @@ label {
     font-size: small;
     font-weight: normal;
 }
+
+.form-submit-error {
+    display: none;
+}

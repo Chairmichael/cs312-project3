@@ -4,33 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitEditButton = document.getElementById('form-submit-edit-btn');
     const cancelEditButton = document.getElementById('form-cancel-edit-btn');
     const usernameInput = postForm.elements.username;
-    const editUsernameInput = postForm.elements.editUsername;
+    const formError = document.getElementById('form-submit-error');
+    const formLegend = document.querySelector('.new-post-form legend');
 
     function resetEditMode() {
         postForm.reset();
         postForm.elements.postId.value = '';
-        editUsernameInput.value = '';
         usernameInput.disabled = false;
         submitButton.style.display = '';
         submitEditButton.style.display = 'none';
         cancelEditButton.style.display = 'none';
+        formError.style.display = 'none';
+        formLegend.innerHTML = 'Create new post:';
     }
 
     resetEditMode();
+    cancelEditButton.addEventListener('click', resetEditMode);
 
-    postForm.addEventListener('submit', () => {
+    postForm.addEventListener('submit', (event) => {
         const postId = postForm.elements.postId;
+
+        // check all fields for content
+        if (postForm.elements.username.value.trim() === '' || postForm.elements.title.value.trim() === '' || postForm.elements.body.value.trim() === '') {
+            event.preventDefault();
+            formError.style.display = 'inline-block';
+            return;
+        }
 
         if (!postId.value) {
             postId.value = generateBlogId();
         }
 
-        if (usernameInput.disabled) {
-            editUsernameInput.value = usernameInput.value;
-        }
+        usernameInput.disabled = false;
     });
 
-    cancelEditButton.addEventListener('click', resetEditMode);
 
     document.querySelectorAll('.edit-post').forEach((editButton) => {
         editButton.addEventListener('click', function (event) {
@@ -41,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('[name="tags"]').value = card.dataset.tag;
             document.querySelector('[name="username"]').value = card.dataset.author;
             document.querySelector('[name="body"]').value = card.dataset.body;
+            formLegend.innerHTML = 'Edit post:';
             usernameInput.disabled = true;
             submitButton.style.display = 'none';
             submitEditButton.style.display = '';
@@ -60,6 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.reload();
             });
         });
+    });
+
+    // clear error on form changed
+    postForm.addEventListener('input', () => {
+        formError.style.display = 'none';
     });
 });
 
