@@ -9,11 +9,17 @@
 <body>
   <div>
 
+    <div class="header">
+      <h1>Super cool blog</h1>
+    </div>
+
     <div class="new-post-form">
-      <form action="" method="post" id="postform">
+      <form action="/" method="post" id="postform">
         <fieldset>
           <legend> Create new post: </legend>
           <div>
+            <input type="hidden" name="postId" form="postform" />
+            <input type="hidden" name="editUsername" form="postform" />
             <label>
               Username: <input name="username" form="postform" />
             </label>
@@ -33,6 +39,10 @@
             <label class="new-post-body-text-label">Body:</label>
             <br />
             <textarea rows="6" cols="80" name="body" form="postform" class="new-post-body-text"></textarea>
+            <br />
+            <button type="submit" form="postform" id="form-submit-btn">Submit</button>
+            <button type="submit" form="postform" id="form-submit-edit-btn" style="display: none;">Submit Edit</button>
+            <button type="button" form="postform" id="form-cancel-edit-btn" style="display: none;">Cancel Edit</button>
           </div>
         </fieldset>
       </form>
@@ -40,18 +50,33 @@
 
     <div class="post-list">
       <% cards.forEach(card=> { %>
-        <div class="card">
-          <h2>
+        <div class="card" data-title="<%= card.title %>" data-tag="<%= card.tag %>" data-author="<%= card.author %>"
+          data-body="<%= card.description %>" data-id="<%= card.id %>">
+          <h2 style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
             <%= card.title %>
+              <span class="card-tag">
+                <%= card.tag %>
+              </span>
+              <span class="card-date"> posted
+                <%= card.createdAt.toISOString().slice(0, 10) %>
+              </span>
           </h2>
+          <h4 style="margin-top: 0rem;">
+            <span style="font-weight: normal;">by</span> <i>
+              <%= card.author %>
+            </i>
+          </h4>
           <p>
             <%= card.description %>
           </p>
+          <a href="#" style="margin-right: 1rem" class="edit-post">Edit</a>
+          <a href="#" class="delete-post">Delete</a>
         </div>
         <% }) %>
     </div>
 
   </div>
+  <script src="/script.js"></script>
 </body>
 
 </html>

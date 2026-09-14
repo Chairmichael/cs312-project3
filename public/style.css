@@ -1,13 +1,20 @@
 body {
     font: 1em 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding: 5% 10%;
+    padding: 1% 10%;
     color: aliceblue;
 }
 
+html,
 body,
 textarea,
 input {
     background-color: rgb(25, 26, 27);
+    color: aliceblue;
+}
+
+.header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 1.5rem;
 }
 
 fieldset {
@@ -18,6 +25,11 @@ input {
     margin-bottom: 1rem;
 }
 
+input:disabled {
+    background-color: gray;
+    color: lightgray;
+}
+
 label {
     margin-right: 1rem;
 }
@@ -26,8 +38,30 @@ label {
     margin-top: 0.5rem;
 }
 
+.new-post-form button {
+    margin-top: 0.5rem;
+}
+
 .card {
     padding: 1rem;
     margin: 0.5rem 0;
     background-color: rgb(18, 19, 20);
+}
+
+.card a {
+    text-decoration: underline aliceblue;
+    color: aliceblue;
+}
+
+.card-tag {
+    margin-left: 1rem;
+    font-size: small;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.card-date {
+    margin-left: 1rem;
+    font-size: small;
+    font-weight: normal;
 }
