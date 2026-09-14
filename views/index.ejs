@@ -50,6 +50,22 @@
       </form>
     </div>
 
+    <div class="postFilterContainer">
+      <form action="" id="filter-posts-form">
+        <label>
+          <h4 style="margin: 1rem 1rem 0; display: inline-block;">Filter posts:</h4>
+          <select name="filterDropdown" id="filter-dropdown" form="postform">
+            <option value="All">All</option>
+            <% post_tags.forEach(tag_category=> { %>
+              <option value="<%= tag_category %>">
+                <%= tag_category %>
+              </option>
+              <% }) %>
+          </select>
+        </label>
+      </form>
+    </div>
+
     <div class="post-list">
       <% cards.forEach(card=> { %>
         <div class="card" data-title="<%= card.title %>" data-tag="<%= card.tag %>" data-author="<%= card.author %>"
