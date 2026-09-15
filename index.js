@@ -8,20 +8,44 @@ app.use(express.urlencoded({ extended: true }));
 
 const cards = [
     {
-        title: 'Card One',
-        description: 'First card content',
-        author: 'John',
-        tag: 'Tech',
-        createdAt: new Date('2026-09-10T14:30:00'),
-        id: '50b1d5e7-04a3-401c-9f74-cc51ce331b89',
+        title: 'Coffee',
+        description: 'Just switched to a pour-over setup and honestly the difference is night and day.',
+        author: 'Mia',
+        tag: 'Lifestyle',
+        createdAt: new Date('2026-09-11T08:05:00'),
+        id: crypto.randomUUID(),
     },
     {
-        title: 'Card Two',
-        description: 'Second card content',
-        author: 'Jeffrey Alexander Montgomery-Smith',
-        tag: 'Education',
-        createdAt: new Date('2026-09-12T09:15:00'),
-        id: '70d471ad-bf98-4520-a6d0-edc4578a2a39',
+        title: 'Refactoring Our Auth Flow: Lessons From a Painful Migration',
+        description: 'We spent three weeks migrating from session-based auth to JWTs and hit almost every pitfall along the way. This post covers what broke, why it broke, and the checklist we wish we had at the start. The first mistake was assuming we could swap the underlying mechanism without touching anything downstream, but token expiration, refresh logic, and CORS headers all needed to be reworked in tandem. We underestimated how much of our session middleware had quietly become load-bearing for things unrelated to login, like rate limiting and analytics tracking, and untangling those dependencies ate up more time than the migration itself. Testing in staging gave us false confidence since our traffic patterns there never matched production, so a handful of edge cases around token refresh races only showed up once real users hit them. We also learned the hard way that rotating signing keys without a grace period locks out anyone with a token issued in the last few minutes. By the end we had a much better mental model of the tradeoffs, and a runbook we now hand to anyone touching auth on the team.',
+        author: 'Derek Owusu',
+        tag: 'Tech',
+        createdAt: new Date('2026-09-13T16:42:00'),
+        id: crypto.randomUUID(),
+    },
+    {
+        title: 'Why I Started Journaling Again',
+        description: 'Picked up an old habit after a long break. A few pages in, I already notice I am thinking more clearly before big decisions.',
+        author: 'Priya Nandakumar',
+        tag: 'Hobby',
+        createdAt: new Date('2026-09-09T21:10:00'),
+        id: crypto.randomUUID(),
+    },
+    {
+        title: 'Scaling a Two-Person Startup Without Losing Your Mind',
+        description: 'No hiring budget, no runway to spare, and a growing customer base. Here is how we prioritized ruthlessly, automated the boring stuff, and said no to almost everything else.',
+        author: 'Samuel T. Whitfield-Brooks',
+        tag: 'Business',
+        createdAt: new Date('2026-09-08T11:00:00'),
+        id: crypto.randomUUID(),
+    },
+    {
+        title: 'Grading Season',
+        description: 'A short reflection on burnout, boundaries, and why I started blocking my calendar during finals week this year.',
+        author: 'Alan',
+        tag: 'Tech',
+        createdAt: new Date('2026-09-12T13:27:00'),
+        id: crypto.randomUUID(),
     },
 ];
 const post_tags = [
@@ -29,7 +53,6 @@ const post_tags = [
 ];
 
 app.get('/', (req, res) => {
-    const testarr = ['a', 'b', 'c'];
     res.render('index', { cards, post_tags });
 });
 

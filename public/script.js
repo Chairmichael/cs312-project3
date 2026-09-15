@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formError.style.display = 'none';
     });
 
+    // filter posts
     postListFilter.addEventListener('input', (event) => {
         event.preventDefault();
         const filterTag = filterDropdown.value;

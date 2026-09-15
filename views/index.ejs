@@ -3,7 +3,9 @@
 
 <head>
   <link rel="stylesheet" href="/style.css">
-  <title>Jeff's Communications</title>
+  <link rel="icon" type="image/x-icon" href="emoticion.png">
+  <title>Jeff's Place</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -25,7 +27,7 @@
             <label>
               Title: <input name="title" form="postform" />
             </label>
-            <label>
+            <label> Tag:
               <select name="tags" form="postform">
                 <% post_tags.forEach(tag_category=> { %>
                   <option value="<%= tag_category %>">

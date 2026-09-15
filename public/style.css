@@ -4,6 +4,7 @@ body {
     color: aliceblue;
 }
 
+
 html,
 body,
 textarea,
@@ -18,11 +19,8 @@ input {
 }
 
 fieldset {
+    display: flex;
     padding: 1rem 3rem;
-}
-
-input {
-    margin-bottom: 1rem;
 }
 
 input:disabled {
@@ -42,10 +40,28 @@ label {
     margin-top: 0.5rem;
 }
 
+
+.new-post-form label input,
+.new-post-form label select {
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    /* padding: 0.5rem; */
+}
+
+.new-post-form label {
+    display: inline-flex;
+
+}
+
 .card {
     padding: 1rem;
     margin: 0.5rem 0;
     background-color: rgb(18, 19, 20);
+    transition: background-color 0.25s ease;
+}
+
+.card:hover {
+    background-color: rgb(10, 10, 10);
 }
 
 .card a {
@@ -68,4 +84,26 @@ label {
 
 .form-submit-error {
     display: none;
+}
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 1% 1%;
+    }
+
+    fieldset {
+        display: flex;
+        padding: 1rem 1rem;
+        width: auto;
+    }
+
+    .new-post-form textarea {
+        width: 100%;
+    }
+
+    .new-post-form label,
+    .new-post-form label input {
+        width: 100%;
+    }
 }
